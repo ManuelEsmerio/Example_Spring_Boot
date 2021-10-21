@@ -33,4 +33,16 @@ public class ProductService {
             return true;
         }).orElse(false);
     }
+
+    public Optional<List<Product>> findByIdCategory(int idCategory){
+        return productRepository.findByIdCategoryOrderByIdDesc(idCategory);
+    }
+
+    public Optional<List<Product>> findByStockGreaterAndEquals(int quantity){
+        return productRepository.findByStockGreaterThanEqual(quantity);
+    }
+
+    public Optional<List<Product>> usingGroupBy(){
+        return productRepository.usingGroupBy();
+    }
 }
